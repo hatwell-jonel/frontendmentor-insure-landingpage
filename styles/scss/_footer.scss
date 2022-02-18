@@ -1,0 +1,109 @@
+.footer{
+  background-color: #FAFAFA;
+  position: relative;
+  margin-top: 4rem;
+  .container{
+    position: relative;
+    z-index: 2;
+
+    header{
+      border-bottom: 1px solid $Color-Dark-Grayish-Violet;
+      padding: 7rem 0rem 1rem;
+
+      @include breakpoint(sm){
+        @include flex(row, space-between, center);
+        padding: 3rem 0rem 1rem;
+      }
+
+      >img{
+        margin: 0 auto;
+
+        @include breakpoint(sm){
+          margin: 0;
+        }
+      }
+
+      .list{
+        @include flex(row, center,normal);
+        margin: 1.5rem 0rem;
+
+        @include breakpoint(sm){
+          margin: 1rem 0rem;
+        }
+        &-item{
+          margin: 0rem .5rem;
+          a{
+            .fa-brands{
+              color: hsl(290, 2%, 51%);
+              font-size: 1.8rem;
+
+              &:hover{
+                transition: .2s linear;
+                color: $Color-Very-Dark-Violet;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .links{
+      padding: 2rem 0rem;
+      text-align: center;
+
+      @include breakpoint(md){
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        text-align: left;
+      }
+
+      .list{
+        text-transform: uppercase;
+        margin-bottom: 2rem;
+        @include font($font-Karla, 1.1rem, 700);
+        &-title{
+          color: $Color-Dark-Grayish-Violet;
+          margin-bottom: 2.5rem;
+        }
+        
+        &-item{
+          margin: .8rem 0rem;
+          a{
+            color: $Color-Very-Dark-Violet;
+            &:hover{
+              border-bottom: 1px solid $Color-Very-Dark-Violet;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .mob-design{
+    position: absolute;
+    left: 0;
+    top: 0;
+    @include breakpoint(md){
+      display: none;
+    }
+  }
+
+  .dt-design{
+    display: none;
+    @include breakpoint(md){
+      position: absolute;
+      left: 0;
+      top: 0;
+      display: block;
+    }
+  }
+}
+
+.attribution{
+  background-color: black;
+  text-align: center;
+  color: #fff;
+  padding: .2rem;
+  font-size: 1rem;
+  font-family: $font-Karla;
+}

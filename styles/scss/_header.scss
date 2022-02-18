@@ -1,0 +1,311 @@
+.header{
+  .navbar{
+      background-color: #fff;
+      position: fixed;
+      width: 100%;
+      z-index: 1000;
+
+      .container{
+        @include flex(row, space-between, center);
+        height: 4rem;
+
+        .logo{
+          padding: .5rem 0rem;
+          &:focus{
+            @include focus();
+          }
+        }
+
+        .menu{
+            position: fixed;
+            width: 100%;
+            top: 4rem;
+            left: -100%;
+            right: 0;
+            bottom: 0;
+            background-color: $Color-Very-Dark-Violet;
+            transition: .3s linear;
+
+            @include breakpoint(md){
+              top: 0;
+              left: 0;
+              right: 0;
+              position: relative;
+              background-color: transparent;
+            }
+
+            .list-group{
+              position: relative;
+              width: 95%;
+              margin: 0 auto;
+              margin-top: 2rem;
+              text-align: center;
+              z-index: 2;
+              transition: .3s linear;
+
+              @include breakpoint(md){
+                @include flex(row, flex-end, center);
+                width: 100%;
+                margin: 0rem;
+              }
+              &__item{
+                margin: .5rem 0rem;
+                a{
+                  @include font($font-Karla, 1.25rem, normal);
+                  display: block;
+                  color: #fff;
+                  text-transform: uppercase;
+                  padding: .5rem 0rem;
+
+                  &:focus{
+                    @include focus;
+                  }
+
+                  @include breakpoint(md){
+                    color: $Color-Dark-Grayish-Violet;
+                    padding: .5rem .7rem;
+
+                    &:hover{
+                      color: $Color-Very-Dark-Violet;
+                    }
+                  }
+
+                  @include breakpoint(lg){
+                    padding: .5rem 1rem;
+                  }
+                }
+              }
+
+              .view-plans{
+                border: 1px solid #fff;
+
+                @include breakpoint(md){
+                  border: 1px solid $Color-Very-Dark-Violet;
+                  a {
+                    color: $Color-Very-Dark-Violet;
+                  }
+
+                  &:hover{
+                  transition: .2s linear;
+                    background-color: $Color-Very-Dark-Violet;
+
+                    a{
+                      color: #fff;
+                    }
+                  }
+                }
+              }
+            }
+
+            &__design{
+              position: absolute;
+              bottom: 0;
+              left: 0;
+              width: 100%;
+              max-height: 240px;
+              min-height: 240px;
+              z-index: 1;
+              @include breakpoint(md){
+                display: none;
+              }
+            }
+
+            // JAVSCRIPT
+            &.show-menu{
+              left: 0;
+              transition: .3s linear;
+            }
+        }
+
+        .menu-icon{
+          cursor: pointer;
+          width: 30px;
+          height: 30px;
+          transition: .2s linear;
+          @include breakpoint(md){
+            display: none;
+          }
+
+          &:focus{
+            @include focus;
+          }
+
+          &.icon1{
+            background: url('../../images/icon-hamburger.svg') no-repeat center/cover;
+            transition: .2s linear;
+          }
+
+          &.icon2{
+            background: url('../../images/icon-close.svg') no-repeat center/cover;
+            transition: .2s linear;
+          }
+
+          &:hover{
+            transform: scale(1.075);
+          }
+     
+        }
+      }
+  }
+
+  .hero{
+    position: relative;
+    top: 4rem;
+    background-color: $Color-Dark-Violet;
+
+    .grid{
+      width:100%;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr;
+      align-items: center;
+
+      @include breakpoint(sm){
+        grid-template-columns: 1fr 1fr;
+        align-content: center;
+        grid-gap: 1rem;
+        width:90%;
+      }
+
+      @include breakpoint(md){
+        width:80%;
+      }
+
+      @include breakpoint(lg){
+        width:75%;
+      }
+
+      .hero-img{
+        position: relative;
+        background: url(../../images/image-intro-desktop.jpg) no-repeat center/cover;
+        height: 425px;
+        width: 100%;
+        
+        @include breakpoint(sm){
+          z-index: 100;
+          order: 2;
+        }
+        
+        @include breakpoint(md){
+          height:570px;
+          top: 4rem;
+        }
+      }
+
+      .hero-text{
+        color: #fff;
+        text-align: center;
+        height: 500px;
+        display: flex;
+        align-items: center;
+
+        @include breakpoint(sm){
+          text-align: left;
+        }
+
+        @include breakpoint(sm){
+          text-align: left;
+        }
+
+
+        .container{
+          position: relative;
+          z-index: 3;
+          
+          @include breakpoint(sm){
+            height: 425px;
+            width: 100%;
+            &:before{
+              content: "";
+              position: absolute;
+              width: 50%;
+              height: 2px;
+              background-color: $Color-Dark-Grayish-Violet;
+              top: 0;
+              left: 0;
+            }
+          }
+
+          h1{
+            @include font($font-DM-Serif, 2.7rem, 700);
+            line-height: 1;
+            
+            @include breakpoint(sm){
+              margin-top: 1rem;
+            }
+
+            @include breakpoint(md){
+              @include font($font-DM-Serif, 3.5rem, 700);
+              margin-top: 2rem;
+            }
+          }
+
+          p{
+            @include font($font-Karla, 1rem, normal);
+            color: $Color-Very-Light-Gray;
+            line-height: 2;
+            padding: 1.2rem 0rem 1.8rem;
+          }
+
+          a{
+            @include font($font-Karla, 1rem, normal);
+            color: #fff;
+            border: 1px solid #fff;
+            padding: .5rem 2rem;
+            text-transform: uppercase;
+
+            &:focus{
+              @include focus;
+            }
+
+            &:hover{
+              background-color: #fff;
+              color: $Color-Dark-Violet;
+              transition: .2s linear;
+            }
+          }
+        }
+      }
+    }
+
+    .img-design-left-mob{
+      position: absolute;
+      top: 425px;
+      left: 0;
+      @include breakpoint(sm){
+        display: none;
+      }
+    }
+
+    .img-design-left-dt{
+      display: none;
+      @include breakpoint(md){
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 300px;
+      }
+    }
+
+    .img-design-right-mob{
+      position: absolute;
+      top: 800px;
+      right: 0;
+      @include breakpoint(sm){
+        display: none;
+      }
+    }
+
+     .img-design-right-dt{
+      display: none;
+      @include breakpoint(md){
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 1;
+      }
+    }
+  }
+}
+

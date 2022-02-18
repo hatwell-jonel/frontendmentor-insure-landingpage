@@ -1,0 +1,75 @@
+.work-container{
+  margin: 3rem 0rem;
+  .container{
+    background-color:$Color-Dark-Violet;
+    padding: 2rem 1rem;
+    text-align: center;
+    position: relative;
+    height: 340px;
+
+    @include breakpoint(md){
+      @include flex(row, center, center);
+      height: 250px;
+    }
+    
+    .work{
+      position: relative;
+      z-index: 2;
+      color: #fff;
+      width: 100%;
+
+      @include breakpoint(md){
+        @include flex(row, space-between, center);
+        padding: 0rem 3rem;
+      }
+
+      &-text{
+        @include font($font-DM-Serif, 2.5rem, 500);
+        line-height: 1.1;
+        margin-bottom: 2rem;
+
+        @include breakpoint(md){
+          @include font($font-DM-Serif, 3rem, 500);
+          @include flex(row, space-between, center);
+          text-align: left;
+          flex-basis:50%;
+          margin-bottom: 0rem;
+        }
+      }
+
+      &-link{
+        @include font($font-Karla, 1.2rem, normal);
+        border: 2px solid #fff;
+        text-transform: uppercase;
+        color: #fff;
+        padding: .5rem 2rem;
+
+        &:hover{
+          transition: .2s linear;
+          background-color: #fff;
+          color: $Color-Very-Dark-Violet;
+        }
+      }
+    }
+  }
+
+  .mob-design{
+    position: absolute;
+    right: 0;
+    top: 0;
+    @include breakpoint(md){
+      display: none;
+    }
+  }
+
+  .dt-design{
+    display: none;
+    @include breakpoint(md){
+      position: absolute;
+      right: 0;
+      top: 0;
+      display: block;
+    }
+  }
+}
+
